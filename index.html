@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="startDate">Дата начала:</label>
+            <input type="date" id="startDate">
+        </div>
+        <div class="input-group">
+            <label for="goalType">Цель:</label>
+            <select id="goalType">
+        <option value="date">Дата окончания</option>
+        <option value="duration">Продолжительность</option>
+      </select>
+        </div>
+        <div class="input-group" id="endDateGroup">
+            <label for="endDate">Дата окончания:</label>
+            <input type="date" id="endDate">
+        </div>
+        <div class="input-group" id="durationGroup" style="display: none;">
+            <label for="durationValue">Продолжительность:</label>
+            <input type="number" id="durationValue" placeholder="Количество">
+            <select id="durationUnit">
+        <option value="days">Дней</option>
+        <option value="weeks">Недель</option>
+        <option value="months">Месяцев</option>
+        <option value="years">Лет</option>
+      </select>
+        </div>
+        <button id="calculate">Рассчитать</button>
+        <div id="progressContainer">
+            <div id="progressBar"></div>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --background-color: #f4f7f6;
+    --text-color: #333;
+    --container-bg-color: #ffffff;
+    --progress-bar-color: var(--primary-color);
+    --progress-background-color: #e0e0e0;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    /* Или другая фиксированная ширина по вашему выбору */
+    margin: 2rem auto;
+    /* Обеспечивает автоматическое центрирование */
+    padding: 20px;
+    background-color: var(--container-bg-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    /* Ensures padding does not affect overall width */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+#progressContainer {
+    width: 100%;
+    background-color: var(--progress-background-color);
+    border-radius: 5px;
+    overflow: hidden;
+    /* Ensures the inner bar stays within the rounded corners */
+    margin: 20px 0;
+}
+
+#progressBar {
+    height: 20px;
+    background-color: var(--progress-bar-color);
+    width: 0%;
+    /* Initial state */
+    transition: width 0.5s ease-in-out;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+.progress-circle {
+    font-size: 20px;
+    /* Размер круга */
+    margin: 20px;
+    position: relative;
+    /* Круг абсолютно позиционирован внутри этого div */
+    text-align: center;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: #e5e5e5;
+    background-image: linear-gradient(to top, #e5e5e5 50%, transparent 50%, transparent), linear-gradient(to right, #ccc 50%, #4CAF50 50%);
+}
+
+.left-half-clipper {
+    /* обрезка левой половины для анимации */
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50% 0 0 50%;
+}
+
+.first50-bar,
+.value-bar {
+    /* поворот баров для создания эффекта заполнения */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    /* двойная ширина для покрытия полукруга */
+    height: 100%;
+    border-radius: 50%;
+    background: #4CAF50;
+}
+
+.first50-bar {
+    background: #ccc;
+    opacity: 1;
+    z-index: 1;
+}
+
+.value-bar {
+    /* Анимация будет применена к этому элементу */
+    opacity: 0;
+    z-index: 2;
+}
